@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.footprint.hackduke2018.myfootprint.MainActivity">
 
+    <TextView
+        android:id="@+id/txtContent"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:text="Default"
+        android:textAlignment="center" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView android:text=""
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtContent"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
