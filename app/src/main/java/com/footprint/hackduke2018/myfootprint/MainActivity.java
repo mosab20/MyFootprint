@@ -1,5 +1,6 @@
 package com.footprint.hackduke2018.myfootprint;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtView.setAllCaps(true);
+                Intent myIntent = new Intent(MainActivity.this, Productpage.class);
+                //myIntent.putExtra("key", value); //Optional parameters
+                MainActivity.this.startActivity(myIntent);
             }
         });
 
