@@ -22,7 +22,7 @@ import java.net.URL;
 import org.json.*;
 
 import java.io.IOException;
-//blob
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
