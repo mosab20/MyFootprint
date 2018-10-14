@@ -67,35 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         Barcode thisCode = barcodes.valueAt(0);
 
-
-//        URL url = null;
-//        StringBuffer content = null;
-//        try {
-//            url = new URL("https://api.upcitemdb.com/prod/trial/lookup?upc=" + thisCode.rawValue);
-//            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-//            con.setRequestMethod("GET");
-//            con.setConnectTimeout(5000);
-//            con.setReadTimeout(5000);
-//
-//            String inputLine;
-//            BufferedReader in = new BufferedReader(
-//                    new InputStreamReader(con.getInputStream()));
-//            content = new StringBuffer();
-//            while ((inputLine = in.readLine()) != null) {
-//                content.append(inputLine);
-//            }
-//            in.close();
-//            con.disconnect();
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (ProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        int response = 0;
-
         try {
             String url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + thisCode.rawValue;
 
@@ -107,10 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
             //add request header
             con.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-//            int responseCode = con.getResponseCode();
-//            System.out.println("\nSending 'GET' request to URL : " + url);
-//            System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
