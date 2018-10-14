@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         BarcodeDetector detector =
                 new BarcodeDetector.Builder(getApplicationContext())
-//                        .setBarcodeFormats(Barcode.DATA_MATRIX | Barcode.QR_CODE)
+                        .setBarcodeFormats(Barcode.UPC_A)
                         .build();
         if(!detector.isOperational()){
             txtView.setText("Could not set up the detector!");
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 //        int response = 0;
 
         try {
-            String url = "https://api.upcitemdb.com/prod/trial/lookup?upc=024100108800";
+            String url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + thisCode.rawValue;
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
