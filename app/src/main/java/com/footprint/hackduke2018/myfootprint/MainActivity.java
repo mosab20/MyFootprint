@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         BarcodeDetector detector =
                 new BarcodeDetector.Builder(getApplicationContext())
-//                        .setBarcodeFormats(Barcode.DATA_MATRIX | Barcode.QR_CODE)
+                        .setBarcodeFormats(Barcode.UPC_A)
                         .build();
         if(!detector.isOperational()){
             txtView.setText("Could not set up the detector!");
@@ -65,37 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         Barcode thisCode = barcodes.valueAt(0);
 
-
-//        URL url = null;
-//        StringBuffer content = null;
-//        try {
-//            url = new URL("https://api.upcitemdb.com/prod/trial/lookup?upc=" + thisCode.rawValue);
-//            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-//            con.setRequestMethod("GET");
-//            con.setConnectTimeout(5000);
-//            con.setReadTimeout(5000);
-//
-//            String inputLine;
-//            BufferedReader in = new BufferedReader(
-//                    new InputStreamReader(con.getInputStream()));
-//            content = new StringBuffer();
-//            while ((inputLine = in.readLine()) != null) {
-//                content.append(inputLine);
-//            }
-//            in.close();
-//            con.disconnect();
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (ProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        int response = 0;
-
         try {
-            String url = "https://api.upcitemdb.com/prod/trial/lookup?upc=024100108800";
+            String url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + thisCode.rawValue;
 
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -105,10 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
             //add request header
             con.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-//            int responseCode = con.getResponseCode();
-//            System.out.println("\nSending 'GET' request to URL : " + url);
-//            System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
