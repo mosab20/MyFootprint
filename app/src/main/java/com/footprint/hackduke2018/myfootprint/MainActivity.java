@@ -21,6 +21,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.json.*;
 
 import java.io.IOException;
 
@@ -122,7 +123,17 @@ public class MainActivity extends AppCompatActivity {
             in.close();
 
             //print result
-            txtView.setText(response.toString());
+            JSONObject jObj = new JSONObject(response.toString());
+            String post_id = "test";
+            JSONArray arr = jObj.getJSONArray("items");
+            for (int i = 0; i < arr.length(); i++)
+            {
+                post_id = arr.getJSONObject(i).getString("brand");
+            }
+
+
+
+            txtView.setText(post_id);
         } catch (Exception e) {
             e.printStackTrace();
         }
